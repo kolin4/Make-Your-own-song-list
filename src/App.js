@@ -2,6 +2,7 @@ import React from 'react';
 import ListItem from './components/list';
 import './App.css';
 
+
 class App extends React.Component {
     constructor(props){
         super(props);
@@ -37,10 +38,41 @@ class App extends React.Component {
             items
         })
     }
-
+    saveList = () =>{
+        const items = [...this.state.items];
+        let itemsJSON =  JSON.stringify(items);
+        function download(text, name, type) {
+            let a = document.createElement("a");
+            let file = new Blob([text], {type: type});
+            a.href = URL.createObjectURL(file);
+            a.download = name;
+            a.click();
+        }
+        download(itemsJSON,'lista.txt','text/plain');
+    }
+    loadList = (event) =>{
+        event.preventDefault();
+        let files = event.target.children[0].files;
+        if (files.length <= 0) {
+            return false;
+        }
+        let fr = new FileReader();
+        fr.onload = (e)=> {
+             let result = JSON.parse(e.target.result);
+             this.setState({
+                 items:result
+             })
+         }
+         fr.readAsText(files.item(0));
+    }
   render() {
     return (
       <div className='App'>
+          <form onSubmit={this.loadList}>
+              <input type="file" id="fileInput"/>
+              <button type='submit'>Load list</button>
+          </form>
+          <button onClick={this.saveList}>Save list</button>
         <h1>Make Your own music list</h1>
 
             <form onSubmit={this.addItem}>
