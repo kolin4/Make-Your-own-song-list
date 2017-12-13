@@ -13,15 +13,30 @@ class App extends React.Component {
 
     addItem = (event) =>{
         event.preventDefault();
+        const prevItems = [...this.state.items];
+
         let item = {
             author:this.refs.author.value,
             title:this.refs.title.value,
-            length:this.refs.length.value
+            length:parseInt(this.refs.length.value,10)  // ogarnij na liczby
         }
-
-        console.log(item);
+        prevItems.push(item);
+        console.log(prevItems);
+        this.refs.author.value = "";
+        this.refs.title.value = "";
+        this.refs.length.value = "";
+        this.setState({
+            items:prevItems
+        })
     }
-
+    delItem = (event) =>{
+        console.log(event.target.id);
+        const items = [...this.state.items];
+        items.splice(event.target.id,1);
+        this.setState({
+            items
+        })
+    }
 
   render() {
     return (
@@ -43,7 +58,7 @@ class App extends React.Component {
                 </label>
                 <button type="submit">Add </button>
             </form>
-        <ListItem/>
+        <ListItem delItem={this.delItem} listItems={this.state.items}/>
       </div>
 
     );
