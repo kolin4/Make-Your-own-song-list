@@ -10,6 +10,7 @@ class ListItem extends React.Component {
         });
         const style = {
             width:'100%',
+            maxWidth:'100%',
             borderBottom:'1px solid black',
             thead :{
 

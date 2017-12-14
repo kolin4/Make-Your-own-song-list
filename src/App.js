@@ -72,7 +72,7 @@ class App extends React.Component {
             this.refreshTime();
 
         })
-        // oblicz dlugosc piosenek
+
     }
     delItem = (event) =>{
         const items = [...this.state.items];
@@ -116,7 +116,7 @@ class App extends React.Component {
       <div className='App'>
           <LoadSave saveList={this.saveList} onSubmit={this.loadList}/>
 
-        <h1 className='title'>Make Your own music list</h1>
+        <h1 className='title'>Make Your own <span className='musicMove'>music</span> list</h1>
 
             <form className='addForm' onSubmit={this.addItem}>
                 <label>

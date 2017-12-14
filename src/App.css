@@ -6,20 +6,23 @@
     font-weight: 400;
 
 }
+/*used to fix background-attachment:fixed on mobile*/
+html {
+        height:100%;
+        min-height: 100vh;
+        background: url(./images/crowdLogo.jpg) no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
 button {
     outline: none;
 }
-/*fix background attachment : fixed on mobile*/
-
-.App {
-  text-align: center;
-  height: auto;
-  min-height: 100vh;
-  background-image: url(./images/crowdLogo.jpg);
-  background-attachment: fixed;
-  background-position: center;
-  background-size: cover;
+.App{
+    text-align: center;
 }
+
 
 /**/
 .exportBtn {
@@ -34,10 +37,7 @@ button {
     transition: 0.3s;
     letter-spacing: 3px;
 }
-.exportBtn:hover{
-    color:black;
-    background-color: rgba(255,255,255,0.7);
-}
+
 .exportContainer {
     display: flex;
     width: 100%;
@@ -60,10 +60,7 @@ button {
     margin: 8px 0;
     width: 45%;
     transition: 0.2s;
-}
-.formExport button:hover{
-    color:black;
-    background-color: rgba(255,255,255,0.7);
+
 }
 
 /*Tite*/
@@ -103,15 +100,14 @@ button {
 .tdLength{
     width: 50%;
 }
-tr:hover {
-    color: white;
-    background-color: rgba(3,3,3,0.35);
-}
 
-@media screen and  (max-width:575px){
+
+@media screen and  (max-width:639px){
+
     .App {
-
+        text-align: center;
     }
+
     /* export and import styles */
     .formExport{
         flex:1;
@@ -164,4 +160,21 @@ tr:hover {
     .tdLength{
         width: 30%;
     }
+
 }
+
+
+
+    .formExport button:hover{
+        color:black;
+        background-color: rgba(255,255,255,0.7);
+
+    }
+    .exportBtn:hover{
+        color:black;
+        background-color: rgba(255,255,255,0.7);
+    }
+    tr:hover {
+        color: white;
+        background-color: rgba(3,3,3,0.35);
+    }

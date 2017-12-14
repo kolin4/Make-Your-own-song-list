@@ -1,5 +1,5 @@
 import React from 'react';
-import Radium from 'radium';
+
 
 class LoadSave extends React.Component{
 
@@ -34,4 +34,4 @@ class LoadSave extends React.Component{
         )
     }
 }
-export default Radium(LoadSave);
+export default LoadSave;

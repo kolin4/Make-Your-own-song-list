@@ -13,5 +13,5 @@ class Item extends React.Component {
     }
 }
 
-// <button id={this.props.id} onClick={this.props.delItem}>Delete</button>
+
 export default Item;
