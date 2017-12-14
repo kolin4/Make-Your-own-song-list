@@ -11,7 +11,12 @@ class ListItem extends React.Component {
 
         return (
             <div>
-                <h3>Lista przedmiotow</h3>
+                <h3 className='headerListSongs'>Song list</h3>
+                <div className='songDesc'>
+                    <span>Author</span>
+                    <span>Title</span>
+                    <span>length</span>
+                </div>
                 {items}
             </div>
         )

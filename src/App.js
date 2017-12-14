@@ -116,10 +116,10 @@ class App extends React.Component {
     return (
       <div className='App'>
           <LoadSave saveList={this.saveList} onSubmit={this.loadList}/>
-          <span>{this.state.totalLength}</span>
-        <h1>Make Your own music list</h1>
 
-            <form onSubmit={this.addItem}>
+        <h1 className='title'>Make Your own music list</h1>
+
+            <form className='addForm' onSubmit={this.addItem}>
                 <label>
                     Author:
                     <input type="text" name="author"  ref='author'/>
@@ -135,6 +135,7 @@ class App extends React.Component {
                 <button type="submit">Add </button>
             </form>
         <ListItem delItem={this.delItem} listItems={this.state.items}/>
+         <span>{this.state.totalLength}</span>
       </div>
 
     );
