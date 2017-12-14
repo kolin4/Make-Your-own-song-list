@@ -1,6 +1,7 @@
 import React from 'react';
 import ListItem from './components/list';
 import LoadSave from './components/loadSaveFiles';
+import fileDownload from 'react-file-download';
 import './App.css';
 
 
@@ -84,16 +85,13 @@ class App extends React.Component {
         })
     }
     saveList = () =>{
+
         const items = [...this.state.items];
+
         let itemsJSON =  JSON.stringify(items);
-        function download(text, name, type) {
-            let a = document.createElement("a");
-            let file = new Blob([text], {type: type});
-            a.href = URL.createObjectURL(file);
-            a.download = name;
-            a.click();
-        }
-        download(itemsJSON,'lista.txt','text/plain');
+
+        fileDownload(itemsJSON, 'songList.csv');
+
     }
     loadList = (event) =>{
         event.preventDefault();

@@ -1,8 +1,19 @@
 .App {
   text-align: center;
+  height: 100vh;
+  background-image: url(./images/crowdLogo.jpg);
+  background-position: center;
+  background-size: cover;
 }
 @media screen and  (max-width:575px){
     .App {
+
         border: 1px solid black;
+    }
+    input{
+        background-color: red;
+    }
+    button {
+        background-color: yellow;
     }
 }
