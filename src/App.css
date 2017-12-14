@@ -9,10 +9,14 @@
 button {
     outline: none;
 }
+/*fix background attachment : fixed on mobile*/
+
 .App {
   text-align: center;
-  height: 100vh;
+  height: auto;
+  min-height: 100vh;
   background-image: url(./images/crowdLogo.jpg);
+  background-attachment: fixed;
   background-position: center;
   background-size: cover;
 }
@@ -55,6 +59,11 @@ button {
     outline: none;
     margin: 8px 0;
     width: 45%;
+    transition: 0.2s;
+}
+.formExport button:hover{
+    color:black;
+    background-color: rgba(255,255,255,0.7);
 }
 
 /*Tite*/
@@ -83,14 +92,26 @@ button {
 
 /*mains song list*/
 .headerListSongs{
-    margin-top: 10px;
+    margin-top: 40px;
 }
 .songDesc{
-    display: flex;
-    justify-content: space-around;
-    border-bottom: 2px solid black;
+    width: 100%;
 }
+.tdSong {
+    width: 50%;
+}
+.tdLength{
+    width: 50%;
+}
+tr:hover {
+    color: white;
+    background-color: rgba(3,3,3,0.35);
+}
+
 @media screen and  (max-width:575px){
+    .App {
+
+    }
     /* export and import styles */
     .formExport{
         flex:1;
@@ -111,11 +132,13 @@ button {
         display: flex;
         padding-left: 15px;
         padding-right: 15px;
+        justify-content: space-between;
 
     }
     .addForm input{
-        flex:1;
-        margin: 5px 15px;
+
+        width: 70%;
+        margin: 5px 10px;
         outline-color: red;
         border: 1px solid black;
     }
@@ -134,5 +157,11 @@ button {
         display: flex;
         justify-content: space-around;
         border-bottom: 2px solid black;
+    }
+    .tdSong {
+        width: 70%;
+    }
+    .tdLength{
+        width: 30%;
     }
 }

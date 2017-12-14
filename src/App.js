@@ -58,7 +58,7 @@ class App extends React.Component {
         const prevItems = [...this.state.items];
         let item = {
             author: this.refs.author.value.length > 0 ? this.refs.author.value : 'UNKNOWN',
-            title:this.refs.title.value.length > 0 ? this.refs.title.value : 'UNKNOWN',
+            title:this.refs.title.value.length > 0 ? this.refs.title.value : 'unknown',
             length:this.refs.length.value
         }
         prevItems.push(item);
@@ -75,9 +75,8 @@ class App extends React.Component {
         // oblicz dlugosc piosenek
     }
     delItem = (event) =>{
-
         const items = [...this.state.items];
-        items.splice(event.target.id,1);
+        items.splice(event.currentTarget.id,1);
         this.setState({
             items
         }, ()=>{
@@ -122,11 +121,11 @@ class App extends React.Component {
             <form className='addForm' onSubmit={this.addItem}>
                 <label>
                     Author:
-                    <input type="text" name="author"  ref='author'/>
+                    <input type="text" name="author" maxLength='20' ref='author'/>
                 </label>
                 <label>
                     Title:
-                    <input type="text" name="title"  ref='title'/>
+                    <input type="text" name="title" maxLength='20'  ref='title'/>
                 </label>
                 <label>
                     Length:
@@ -135,7 +134,7 @@ class App extends React.Component {
                 <button type="submit">Add </button>
             </form>
         <ListItem delItem={this.delItem} listItems={this.state.items}/>
-         <span>{this.state.totalLength}</span>
+         <span>Total length: {this.state.totalLength}</span>
       </div>
 
     );
